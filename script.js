@@ -129,13 +129,62 @@ const strutturaDati = [
 ];
 
 const container = document.getElementById("container");
+const scelta = document.getElementById("scelta");
 
-strutturaDati.forEach((element, i, array) => {
-	container.innerHTML += `
-	<div class="box">
-	<i class="${element.family} ${element.prefix}${element.name} ${element.color}"></i>
-	${element.name}
-	</div>
-	`
-});
+
+// funzione per stampare
+function stampa(array){
+	container.innerHTML = "";
+	array.forEach((element) => {
+		container.innerHTML += `
+		<div class="box">
+		<i class="${element.family} ${element.prefix}${element.name} ${element.color}"></i>
+		${element.name}
+		</div>
+		`
+	});
+}
+
+stampa(strutturaDati);
+
+scelta.addEventListener("click",
+function() {
+	if(scelta.value === "all"){
+		stampa(strutturaDati);
+	}
+	else if (scelta.value === "animal"){
+		const animals = strutturaDati.filter((elemento) => {
+			if (elemento.type == "animal"){
+				return true
+			}
+			return false
+		})
+		stampa(animals)
+	}
+	else if (scelta.value === "vegetable"){
+		const vegetables = strutturaDati.filter((elemento) => {
+			if (elemento.type == "vegetable"){
+				return true
+			}
+			return false
+		})
+		stampa(vegetables)
+	}
+	else if (scelta.value === "user"){
+		const users = strutturaDati.filter((elemento) => {
+			if (elemento.type == "user"){
+				return true
+			}
+			return false
+		})
+		stampa(users)
+	}
+}
+)
+
+
+
+
+
+
 
