@@ -147,7 +147,7 @@ function stampa(array){
 
 stampa(strutturaDati);
 
-scelta.addEventListener("click",
+scelta.addEventListener("change",
 function() {
 	if(scelta.value === "all"){
 		stampa(strutturaDati);
